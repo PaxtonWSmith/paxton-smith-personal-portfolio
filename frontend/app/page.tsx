@@ -939,12 +939,12 @@ export default function Home() {
                 {/* Contact methods - email and social links */}
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   {/* Email link */}
-                  <Link
-                    href="mailto:smithypaxton@gmail.com"
+                  <Link 
+                    href="mailto:john.doe@example.com" 
                     color="inherit"
                     underline="none"
-                    sx={{
-                      display: 'flex',
+                    sx={{ 
+                      display: 'flex', 
                       alignItems: 'center',
                       transition: 'color 0.2s, transform 0.2s',
                       '&:hover': {
@@ -954,7 +954,7 @@ export default function Home() {
                     }}
                   >
                     <HiOutlineMail style={{ marginRight: '0.5rem' }} />
-                    smithypaxton@gmail.com
+                    john.doe@example.com
                   </Link>
                   
                   {/* Social media links */}
