@@ -25,6 +25,7 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa"; // Social me
 import { HiOutlineMail } from "react-icons/hi"; // Email icon
 import { IoMoon, IoSunny } from "react-icons/io5"; // Theme toggle icons
 import Image from "next/image"; // Next.js optimized Image component
+import CatchTheDotGame from './components/CatchTheDotGame';
 import {
   AppBar, // Top navigation bar
   Box, // Basic layout container
@@ -552,6 +553,12 @@ export default function Home() {
                 </Box>
               </MuiGrid>
             </MuiGrid>
+          </Container>
+          {/* Interactive game: Catch the Dot */}
+          <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, mt: 4, mb: 4 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <CatchTheDotGame />
+            </Box>
           </Container>
         </Box>
 
