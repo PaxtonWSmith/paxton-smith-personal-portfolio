@@ -70,6 +70,16 @@ export default function CatchTheDotGame({ size = 320, timeLimit = 20 }: Props) {
     placeDot();
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!playing) return;
+      setScore((s) => s + 1);
+      placeDot();
+    }
+  };
+
   return (
     <div style={{ textAlign: "center", fontFamily: 'inherit' }}>
       <div style={{ marginBottom: 8, color: 'inherit' }}>
@@ -102,7 +112,7 @@ export default function CatchTheDotGame({ size = 320, timeLimit = 20 }: Props) {
           role="button"
           tabIndex={0}
           onClick={handleHit}
-          onKeyDown={(e) => e.key === 'Enter' && handleHit(e as any)}
+          onKeyDown={handleKeyDown}
           className="catch-dot"
           style={{
             position: 'absolute',
