@@ -24,7 +24,6 @@ import { useState, useEffect } from "react"; // For state management and side ef
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa"; // Social media icons
 import { HiOutlineMail } from "react-icons/hi"; // Email icon
 import { IoMoon, IoSunny } from "react-icons/io5"; // Theme toggle icons
-import Image from "next/image"; // Next.js optimized Image component
 import {
   AppBar, // Top navigation bar
   Box, // Basic layout container
