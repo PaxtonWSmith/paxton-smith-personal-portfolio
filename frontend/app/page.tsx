@@ -21,6 +21,7 @@
 
 // Import necessary libraries and components
 import { useState, useEffect } from "react"; // For state management and side effects
+import { motion } from "framer-motion"; // For animations
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa"; // Social media icons
 import { HiOutlineMail } from "react-icons/hi"; // Email icon
 import { IoMoon, IoSunny } from "react-icons/io5"; // Theme toggle icons
@@ -451,7 +452,12 @@ export default function Home() {
         </AppBar>
 
         {/* ===== HERO SECTION ===== */}
-        <Box sx={styles.heroSection}>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8 }}
+        >
+          <Box sx={styles.heroSection}>
           {/* Decorative background gradient */}
           <Box sx={styles.heroGradient}>
             <Box sx={styles.innerGradient}></Box>
@@ -553,18 +559,24 @@ export default function Home() {
             </MuiGrid>
           </Container>
         </Box>
+        </motion.div>
 
         {/* ===== ABOUT SECTION ===== */}
-        <Box 
-          component="section" 
-          id="about" 
-          sx={{ 
-            py: 12, 
-            bgcolor: darkMode ? '#0a1929' : '#f8fafc',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
+          <Box 
+            component="section" 
+            id="about" 
+            sx={{ 
+              py: 12, 
+              bgcolor: darkMode ? '#0a1929' : '#f8fafc',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
           {/* Decorative shape - circles */}
           <Box sx={styles.sectionShape} />
           
@@ -630,18 +642,24 @@ export default function Home() {
             </Paper>
           </Container>
         </Box>
+        </motion.div>
 
         {/* ===== PROJECTS SECTION ===== */}
-        <Box 
-          component="section" 
-          id="projects" 
-          sx={{ 
-            py: 12, 
-            bgcolor: darkMode ? '#132f4c' : '#ffffff',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
+          <Box 
+            component="section" 
+            id="projects" 
+            sx={{ 
+              py: 12, 
+              bgcolor: darkMode ? '#132f4c' : '#ffffff',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
           {/* Decorative shape - circles */}
           <Box 
             sx={{ 
@@ -719,18 +737,24 @@ export default function Home() {
             </Box>
           </Container>
         </Box>
+        </motion.div>
 
         {/* ===== SKILLS SECTION ===== */}
-        <Box 
-          component="section" 
-          id="skills" 
-          sx={{ 
-            py: 12, 
-            bgcolor: darkMode ? '#0a1929' : '#f8fafc',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
+          <Box 
+            component="section" 
+            id="skills" 
+            sx={{ 
+              py: 12, 
+              bgcolor: darkMode ? '#0a1929' : '#f8fafc',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
           {/* Decorative shape - circles */}
           <Box 
             sx={{ 
@@ -795,6 +819,15 @@ export default function Home() {
                             {skill.name}
                           </Typography>
                         </Box>
+                        <Box sx={styles.skillProgress}>
+                          <Box 
+                            component={motion.div} 
+                            animate={{ width: `${skill.value}%` }} 
+                            initial={{ width: 0 }} 
+                            transition={{ duration: 1, delay: index * 0.2 }} 
+                            sx={styles.skillProgressBar} 
+                          />
+                        </Box>
                       </Box>
                     ))}
                   </Box>
@@ -837,6 +870,15 @@ export default function Home() {
                           >
                             {skill.name}
                           </Typography>
+                        </Box>
+                        <Box sx={styles.skillProgress}>
+                          <Box 
+                            component={motion.div} 
+                            animate={{ width: `${skill.value}%` }} 
+                            initial={{ width: 0 }} 
+                            transition={{ duration: 1, delay: (index + frontendSkills.length) * 0.2 }} 
+                            sx={styles.skillProgressBar} 
+                          />
                         </Box>
                       </Box>
                     ))}
@@ -894,18 +936,24 @@ export default function Home() {
             </Paper>
           </Container>
         </Box>
+        </motion.div>
 
         {/* ===== CONTACT SECTION ===== */}
-        <Box 
-          component="section" 
-          id="contact" 
-          sx={{ 
-            py: 12, 
-            bgcolor: darkMode ? '#132f4c' : '#ffffff',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
+          <Box 
+            component="section" 
+            id="contact" 
+            sx={{ 
+              py: 12, 
+              bgcolor: darkMode ? '#132f4c' : '#ffffff',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
           {/* Decorative shape - circles */}
           <Box 
             sx={{ 
@@ -1092,6 +1140,7 @@ export default function Home() {
             </MuiGrid>
           </Container>
         </Box>
+        </motion.div>
 
         {/* ===== FOOTER ===== */}
         <Box
