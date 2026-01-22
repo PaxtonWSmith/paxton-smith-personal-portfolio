@@ -25,6 +25,7 @@ import { motion } from "framer-motion"; // For animations
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa"; // Social media icons
 import { HiOutlineMail } from "react-icons/hi"; // Email icon
 import { IoMoon, IoSunny } from "react-icons/io5"; // Theme toggle icons
+import StickyContactMenu from "./components/StickyContactMenu"; // Sticky contact menu component
 import {
   AppBar, // Top navigation bar
   Box, // Basic layout container
@@ -320,6 +321,7 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/* Reset CSS for consistency */}
+      <StickyContactMenu darkMode={darkMode} scrollToSection={scrollToSection} />
       <Box sx={styles.gradientBg}>
         {/* ===== NAVIGATION BAR ===== */}
         <AppBar position="sticky" elevation={0} sx={styles.navBar} color="transparent">
