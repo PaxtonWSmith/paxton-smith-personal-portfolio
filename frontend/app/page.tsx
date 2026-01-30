@@ -53,11 +53,31 @@ export default function Home() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   // State to track if dark mode is active
   const [darkMode, setDarkMode] = useState(true);
+  // State for the joke
+  const [joke, setJoke] = useState<{ setup: string; punchline: string } | null>(null);
+  const [loadingJoke, setLoadingJoke] = useState(false);
 
   // Update dark mode when system preference changes
   useEffect(() => {
     setDarkMode(prefersDarkMode);
   }, [prefersDarkMode]);
+
+  // Function to fetch a random joke
+  const fetchJoke = async () => {
+    setLoadingJoke(true);
+    try {
+      const response = await fetch('/api/jokes');
+      if (!response.ok) {
+        throw new Error('Failed to fetch joke');
+      }
+      const data = await response.json();
+      setJoke(data);
+    } catch (error) {
+      console.error('Error fetching joke:', error);
+    } finally {
+      setLoadingJoke(false);
+    }
+  };
 
   // Create a theme based on dark/light mode preference
   const theme = createTheme({
@@ -505,6 +525,37 @@ export default function Home() {
                   I create sophisticated web applications that deliver exceptional
                   user experiences with modern technologies and clean code.
                 </Typography>
+                
+                {/* Fun Joke Section */}
+                <Box sx={{ mt: 3, mb: 3, p: 2, borderRadius: 2, bgcolor: 'background.paper', border: 1, borderColor: 'divider' }}>
+                  <Typography variant="h6" sx={{ mb: 1, color: 'primary.main' }}>
+                    😄 Random Joke
+                  </Typography>
+                  {joke ? (
+                    <Box>
+                      <Typography variant="body1" sx={{ mb: 1, fontStyle: 'italic' }}>
+                        {joke.setup}
+                      </Typography>
+                      <Typography variant="body1" sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
+                        {joke.punchline}
+                      </Typography>
+                    </Box>
+                  ) : (
+                    <Typography variant="body2" color="text.secondary">
+                      Click the button to get a random joke!
+                    </Typography>
+                  )}
+                  <Button
+                    onClick={fetchJoke}
+                    variant="outlined"
+                    size="small"
+                    disabled={loadingJoke}
+                    sx={{ mt: 1 }}
+                  >
+                    {loadingJoke ? 'Loading...' : 'Get New Joke'}
+                  </Button>
+                </Box>
+                
                 <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
                   <Button
                     onClick={() => scrollToSection('contact')}
