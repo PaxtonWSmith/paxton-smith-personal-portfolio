@@ -627,12 +627,13 @@ export default function Home() {
               
               {/* Resume download button */}
               <Box sx={{ mt: 4, display: 'flex', gap: 2, justifyContent: 'center' }}>
-                <Button 
-                  variant="contained" 
-                  color="primary"
+                <Button
+                  component="a"
                   href="/resume.pdf"
-                  target="_blank"
-                  sx={{ 
+                  download
+                  variant="contained"
+                  color="primary"
+                  sx={{
                     background: 'linear-gradient(to right, #3a86ff, #5e60ce)',
                   }}
                 >
