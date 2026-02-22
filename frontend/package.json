@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node ./--test--/about-api.test.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -27,6 +28,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
+    "jest": "^0.0.87",
+    "node-mocks-http": "^1.11.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

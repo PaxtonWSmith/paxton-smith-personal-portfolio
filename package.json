@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ],
+  "devDependencies": {
+    "jest": "0.0.87",
+    "node-mocks-http": "1.11.0"
+  },
+  "scripts": {
+    "test": "npm run test --prefix frontend",
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "npm run start --prefix frontend",
+    "lint": "npm run lint --prefix frontend"
+  }
+}
